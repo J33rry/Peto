@@ -12,7 +12,7 @@ function Loading() {
             opacity: 0.2,
             scale: 0.7,
             duration: 1,
-            ease: "ease.inOut",
+            ease: "back.in",
         });
     }, []);
     useEffect(() => {
@@ -27,8 +27,8 @@ function Loading() {
                 gsap.to(LoadRef.current, {
                     opacity: 0,
                     scale: 0.7,
-                    duration: 1,
-                    ease: "ease.inOut",
+                    duration: 0.5,
+                    ease: "back.out",
                     onComplete: () => {
                         LoadRef.current.style.display = "none";
                     },

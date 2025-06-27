@@ -11,20 +11,13 @@ function page() {
     const MainRef = useRef(null);
     const NavRef = useRef(null);
 
-    useGSAP(() => {
-        gsap.from([NavRef.current, MainRef.current], {
-            opacity: 0,
-            delay: 2,
-        });
-    }, []);
-
     return (
         <div className="relative bg-zinc-400 ">
-            <div className="absolute top-5 right-2 left-2 m-2" ref={NavRef}>
+            <div className="fixed top-5 right-2 left-2 m-2 z-10" ref={NavRef}>
                 <NavBar />
             </div>
-            <Loading />
-            <div className="absolute top-5 m-2" ref={MainRef}>
+            {/* <Loading /> */}
+            <div className="" ref={MainRef}>
                 <MainPage />
             </div>
         </div>
