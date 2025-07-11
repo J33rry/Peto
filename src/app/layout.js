@@ -1,11 +1,29 @@
 import {
     Caveat_Brush,
+    Exo_2,
     Geist,
     Geist_Mono,
     Irish_Grover,
     Orbitron,
 } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+
+const jaapokki = localFont({
+    src: "../../public/fonts/Jaapokki-Regular.otf",
+    weight: "400",
+    variable: "--font-jaapokki",
+});
+const jaapokkiEnchance = localFont({
+    src: "../../public/fonts/Jaapokkienchance-Regular.otf",
+    weight: "400",
+    variable: "--font-jaapokki-enchance",
+});
+const jaapokkiSubtract = localFont({
+    variable: "--font-jaapokki-subtract",
+    src: "../../public/fonts/Jaapokkisubtract-Regular.otf",
+    weight: "400",
+});
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -45,7 +63,7 @@ export default function RootLayout({ children }) {
         <ViewTransitions>
             <html lang="en">
                 <body
-                    className={`${geistSans.variable} ${geistMono.variable} antialiased ${IrishGover.variable} ${CaveatBrush.variable} ${orbitron.variable}`}
+                    className={`${geistSans.variable} ${geistMono.variable} antialiased ${IrishGover.variable} ${CaveatBrush.variable} ${orbitron.variable} ${jaapokki.variable} ${jaapokkiEnchance.variable} ${jaapokkiSubtract.variable}`}
                 >
                     {children}
                 </body>

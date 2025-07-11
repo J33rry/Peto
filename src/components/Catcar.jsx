@@ -15,8 +15,6 @@ function Catcar() {
 
     return (
         <div className="flex items-center justify-center">
-            {/* <Image src={catLoad} alt="CAR" unoptimized={true} loop={false} /> */}
-            {/* <video src={catLoad} typeof="mp4"></video> */}
             <video
                 src="/catLoader1.mp4"
                 autoPlay
@@ -26,8 +24,6 @@ function Catcar() {
                     width: "50%",
                     height: "auto",
                     objectFit: "contain",
-                    // borderRadius: "5%",
-                    // boxShadow: "0 0 10px rgba(255,255,255, .3)",
                 }}
                 ref={VideoRef}
             />

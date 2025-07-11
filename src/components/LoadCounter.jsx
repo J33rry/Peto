@@ -32,7 +32,7 @@ function LoadCounter() {
     return (
         <div>
             <div
-                className="font-counter text-3xl font-bold absolute right-20 bottom-20"
+                className="font-counter  text-white text-3xl font-bold absolute right-20 bottom-20"
                 ref={countRef}
             >
                 0%

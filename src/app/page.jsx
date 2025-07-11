@@ -1,23 +1,86 @@
 "use client";
-import React, { useRef } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import NavBar from "@/components/NavBar";
 
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Loading from "@/pages/Loading";
 import MainPage from "@/pages/MainPage";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function page() {
     const MainRef = useRef(null);
     const NavRef = useRef(null);
+    const [isLoading, setIsLoading] = useState(true);
 
+    useEffect(() => {
+        const nav = NavRef.current;
+        let lastY = window.scrollY;
+
+        const trigger = ScrollTrigger.create({
+            start: 0,
+            end: document.body.scrollHeight,
+            onUpdate: (self) => {
+                const currentY = window.scrollY;
+
+                if (currentY > lastY && currentY > 100) {
+                    // Scroll Down
+                    gsap.to(nav, {
+                        top: -70,
+                        duration: 0.6,
+                        opacity: 0,
+                        scale: 0.9,
+                        ease: "power2.out",
+                    });
+                } else {
+                    // Scroll Up
+                    gsap.to(nav, {
+                        top: 5,
+                        duration: 0.6,
+                        ease: "power2.out",
+                        opacity: 1,
+                        scale: 1,
+                    });
+                }
+
+                lastY = currentY;
+            },
+        });
+
+        return () => {
+            trigger.kill();
+        };
+    }, []);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+            gsap.to(MainRef.current, {
+                opacity: 1,
+                height: "auto",
+                duration: 0.5,
+                ease: "power2.out",
+            });
+        }, 6);
+        return () => clearTimeout(timer);
+    }, []);
+
+    // remember here it is
     return (
-        <div className="relative bg-zinc-400 ">
-            <div className="fixed top-5 right-2 left-2 m-2 z-10" ref={NavRef}>
+        <div className="relative bg-transparent">
+            <div
+                className="fixed top-0 right-0 left-0 z-10 opacity-0"
+                ref={NavRef}
+            >
                 <NavBar />
             </div>
             {/* <Loading /> */}
-            <div className="" ref={MainRef}>
+
+            <div
+                className="opacity-0 h-screen overflow-y-hidden overflow-x-hidden"
+                ref={MainRef}
+            >
                 <MainPage />
             </div>
         </div>

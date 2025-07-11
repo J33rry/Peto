@@ -27,7 +27,7 @@ function Loading() {
                 gsap.to(LoadRef.current, {
                     opacity: 0,
                     scale: 0.7,
-                    duration: 0.5,
+                    duration: 1,
                     ease: "back.out",
                     onComplete: () => {
                         LoadRef.current.style.display = "none";
