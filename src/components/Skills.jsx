@@ -125,7 +125,7 @@ function Skills() {
             className="Super_Power flex flex-col text-black bg-white"
         >
             <div
-                className="top-0 right-0 left-0 text-4xl md:text-5xl lg:text-7xl xl:text-9xl flex items-center justify-center mt-12 md:mt-10 lg:mt-10 xl:mt-12 font-counter border-b-2 border-black/20 pb-24 mx-10"
+                className="top-0 right-0 left-0 text-4xl md:text-5xl lg:text-7xl xl:text-9xl flex items-center justify-center mt-12 md:mt-10 lg:mt-10 xl:mt-12 font-counter border-b-2 border-black/20 pb-8 md:pb-12 lg:pb-18 xl:pb-24 mx-10"
                 ref={TitleRef}
             >
                 {[
@@ -152,9 +152,9 @@ function Skills() {
                     );
                 })}
             </div>
-            <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl gap-24">
+            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-white/30 backdrop-blur-2xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 ">
                 <div className="">
-                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl mb-24">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
                         {["KUNG", "FU", "/", "KARATE"].map((word, index) => {
                             return (
                                 <div className="" key={index}>
@@ -164,7 +164,7 @@ function Skills() {
                         })}
                     </div>
                     <div
-                        className="font-jaapokki text-2xl text-zinc-800 leading-8"
+                        className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8"
                         ref={textRef}
                     >
                         {" "}
@@ -187,12 +187,12 @@ function Skills() {
                 <img
                     src="/cat/kunfu.jpg"
                     alt="Cat Kung Fu"
-                    className="w-auto h-[80%] my-auto rounded-2xl"
+                    className="w-auto h-[60%] lg:h-[80%] my-auto rounded-2xl"
                 />
             </div>
-            <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl gap-24">
+            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-white/30 backdrop-blur-2xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 ">
                 <div className="">
-                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl mb-24">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
                         {["SPEED", "/", "REFLEX"].map((word, index) => {
                             return (
                                 <div className="" key={index}>
@@ -202,7 +202,7 @@ function Skills() {
                         })}
                     </div>
                     <div
-                        className="font-jaapokki text-2xl text-zinc-800 leading-8"
+                        className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8"
                         ref={textRef}
                     >
                         <span className="mx-24"></span>
@@ -224,12 +224,12 @@ function Skills() {
                 <img
                     src="/cat/spped1.jpg"
                     alt="Cat Speed"
-                    className="w-auto h-[80%] my-auto rounded-2xl"
+                    className="w-auto h-[60%] lg:h-[80%] my-auto rounded-2xl"
                 />
             </div>
-            <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl gap-24">
+            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-white/30 backdrop-blur-2xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 ">
                 <div className="">
-                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl mb-24">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
                         {["STEALTH", "/", "SNEAKY"].map((word, index) => {
                             return (
                                 <div className="" key={index}>
@@ -239,7 +239,7 @@ function Skills() {
                         })}
                     </div>
                     <div
-                        className="font-jaapokki text-2xl text-zinc-800 leading-8"
+                        className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8"
                         ref={textRef}
                     >
                         <span className="mx-24"></span>
@@ -262,12 +262,12 @@ function Skills() {
                 <img
                     src="/cat/sneak1.jpg"
                     alt="Cat Kung Fu"
-                    className="w-auto h-[80%] my-auto rounded-2xl"
+                    className="w-auto h-[60%] lg:h-[80%] my-auto rounded-2xl"
                 />
             </div>
-            <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl gap-24">
+            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-white/30 backdrop-blur-2xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 ">
                 <div className="">
-                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl mb-24">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
                         {["CUTE", "/", "DEADLY"].map((word, index) => {
                             return (
                                 <div className="" key={index}>
@@ -277,7 +277,7 @@ function Skills() {
                         })}
                     </div>
                     <div
-                        className="font-jaapokki text-2xl text-zinc-800 leading-8"
+                        className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8"
                         ref={textRef}
                     >
                         <span className="mx-24"></span>
@@ -299,28 +299,9 @@ function Skills() {
                 <img
                     src="/cat/cute.jpg"
                     alt="Cat Kung Fu"
-                    className="w-auto h-[80%] my-auto rounded-2xl"
+                    className="w-auto h-[60%] lg:h-[80%] my-auto rounded-2xl"
                 />
             </div>
-            {/* <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl">
-                <div className="">
-                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl m-24">
-                        {["KUNG", "FU", "/", "KARATE"].map((word, index) => {
-                            return (
-                                <div className="" key={index}>
-                                    {word}
-                                </div>
-                            );
-                        })}
-                    </div>
-                    <div className="" ref={textRef}></div>
-                </div>
-                <img
-                    src="/cat/kunfu.jpg"
-                    alt="Cat Kung Fu"
-                    className="w-auto h-[80%] my-auto rounded-2xl"
-                />
-            </div> */}
         </section>
     );
 }
