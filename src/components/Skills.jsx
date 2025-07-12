@@ -1,14 +1,12 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import React, { useEffect, useRef } from "react";
-import NavBar from "./NavBar";
+import React, { useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 function Skills() {
     const TitleRef = useRef(null);
     const sectionRef = useRef(null);
-    const powerRef = useRef([]);
     useGSAP(() => {
         const chars = TitleRef.current?.children;
         if (!chars) return;
@@ -43,7 +41,7 @@ function Skills() {
                 scrollTrigger: {
                     trigger: element,
                     start: "top 90%",
-                    end: "bottom 90%",
+                    end: "bottom 80%",
                     toggleActions: "play none none reverse",
                     scrub: true,
                 },
@@ -87,9 +85,7 @@ function Skills() {
                 });
             },
         });
-    }, []);
-    const textRef = useRef(null);
-    useGSAP(() => {
+
         const cards = gsap.utils.toArray(".card");
 
         cards.forEach((element, index) => {
@@ -152,45 +148,8 @@ function Skills() {
                     );
                 })}
             </div>
-            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-white/30 backdrop-blur-2xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 ">
-                <div className="">
-                    <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
-                        {["KUNG", "FU", "/", "KARATE"].map((word, index) => {
-                            return (
-                                <div className="" key={index}>
-                                    {word}
-                                </div>
-                            );
-                        })}
-                    </div>
-                    <div
-                        className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8"
-                        ref={textRef}
-                    >
-                        {" "}
-                        <span className="mx-24"></span>
-                        "Don&apos;t be fooled by the fluff—cats are silent
-                        assassins cloaked in cuteness. Behind those purring eyes
-                        lie ancient{" "}
-                        <span className="bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1">
-                            martial skills:
-                        </span>
-                        <img
-                            src="/cat/kung3.jpeg"
-                            className="inline h-[1em] mx-4 rounded-md animate-bounce hover:scale-[500%] transition-all duration-300"
-                        />
-                        they leap like ninjas, strike with kung-fu precision,
-                        and land every move like feline black belts. Karate?
-                        They've got it."
-                    </div>
-                </div>
-                <img
-                    src="/cat/kunfu.jpg"
-                    alt="Cat Kung Fu"
-                    className="w-auto h-[60%] lg:h-[80%] my-auto rounded-2xl"
-                />
-            </div>
-            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-white/30 backdrop-blur-2xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 ">
+
+            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-zinc-200/30 backdrop-blur-xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 border-b-2 border-dashed border-zinc-500/50">
                 <div className="">
                     <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
                         {["SPEED", "/", "REFLEX"].map((word, index) => {
@@ -201,11 +160,8 @@ function Skills() {
                             );
                         })}
                     </div>
-                    <div
-                        className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8"
-                        ref={textRef}
-                    >
-                        <span className="mx-24"></span>
+                    <div className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
+                        <span className="mx-8 md:mx-12 lg:mx-18 xl:mx-24"></span>
                         "Their reflexes? Lightning. Their speed? Blinding. Cats
                         move before you blink—dashing across rooms, dodging
                         invisible threats, and reacting with precision honed by
@@ -227,7 +183,42 @@ function Skills() {
                     className="w-auto h-[60%] lg:h-[80%] my-auto rounded-2xl"
                 />
             </div>
-            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-white/30 backdrop-blur-2xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 ">
+            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-zinc-200/30 backdrop-blur-xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 border-b-2 border-dashed border-zinc-500/50">
+                <div className="">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
+                        {["KUNG", "FU", "/", "KARATE"].map((word, index) => {
+                            return (
+                                <div className="" key={index}>
+                                    {word}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
+                        {" "}
+                        <span className="mx-8 md:mx-12 lg:mx-18 xl:mx-24"></span>
+                        "Don&apos;t be fooled by the fluff—cats are silent
+                        assassins cloaked in cuteness. Behind those purring eyes
+                        lie ancient{" "}
+                        <span className="bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1">
+                            martial skills:
+                        </span>
+                        <img
+                            src="/cat/kung3.jpeg"
+                            className="inline h-[1em] mx-4 rounded-md animate-bounce hover:scale-[500%] transition-all duration-300"
+                        />
+                        they leap like ninjas, strike with kung-fu precision,
+                        and land every move like feline black belts. Karate?
+                        They've got it."
+                    </div>
+                </div>
+                <img
+                    src="/cat/kunfu.jpg"
+                    alt="Cat Kung Fu"
+                    className="w-auto h-[60%] lg:h-[80%] my-auto rounded-2xl"
+                />
+            </div>
+            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-zinc-200/30 backdrop-blur-xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 border-b-2 border-dashed border-zinc-500/50">
                 <div className="">
                     <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
                         {["STEALTH", "/", "SNEAKY"].map((word, index) => {
@@ -238,11 +229,8 @@ function Skills() {
                             );
                         })}
                     </div>
-                    <div
-                        className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8"
-                        ref={textRef}
-                    >
-                        <span className="mx-24"></span>
+                    <div className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
+                        <span className="mx-8 md:mx-12 lg:mx-18 xl:mx-24"></span>
                         "Cats don&apos;t walk — they ghost. One moment
                         they&apos;re beside you, the next they&apos;re a shadow
                         slipping{" "}
@@ -265,7 +253,7 @@ function Skills() {
                     className="w-auto h-[60%] lg:h-[80%] my-auto rounded-2xl"
                 />
             </div>
-            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-white/30 backdrop-blur-2xl gap-8 md:gap-12 lg:gap-18 xl:gap-24 ">
+            <div className="card flex flex-col-reverse lg:flex-row h-[70vh] items-center lg:items-start justify-between px-8 md:px-12 lg:px-18 xl:px-24 py-12 bg-zinc-200/30 backdrop-blur-xl gap-8 md:gap-12 lg:gap-18 xl:gap-24">
                 <div className="">
                     <div className="power-title flex font-jaapokki-subtract gap-4 text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 md:mb-12 lg:mb-18 xl:mb-24">
                         {["CUTE", "/", "DEADLY"].map((word, index) => {
@@ -276,11 +264,8 @@ function Skills() {
                             );
                         })}
                     </div>
-                    <div
-                        className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8"
-                        ref={textRef}
-                    >
-                        <span className="mx-24"></span>
+                    <div className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
+                        <span className="mx-8 md:mx-12 lg:mx-18 xl:mx-24"></span>
                         "Don&apos;t mistake the wide eyes and twitchy whiskers —
                         that&apos;s camouflage. Their cuteness is a{" "}
                         <span className="bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1">
