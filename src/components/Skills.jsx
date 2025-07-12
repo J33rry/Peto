@@ -8,10 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Skills() {
     const TitleRef = useRef(null);
     const sectionRef = useRef(null);
-    const powerRef = useRef(null);
-    const power1Ref = useRef(null);
-    const text1Ref = useRef(null);
-    const image1Ref = useRef(null);
+    const powerRef = useRef([]);
     useGSAP(() => {
         const chars = TitleRef.current?.children;
         if (!chars) return;
@@ -34,26 +31,36 @@ function Skills() {
             trigger: TitleRef.current,
             start: "top top",
             endTrigger: sectionRef.current,
-            end: "bottom top",
+            end: "bottom bottom",
             pin: true,
 
             pinSpacing: false,
             scrub: 1,
         });
-        ScrollTrigger.create({
-            trigger: powerRef.current,
-            start: "top 20%",
-            endTrigger: sectionRef.current,
-            end: "bottom 20%",
-            pinSpacing: false,
-            pin: true,
+        const powerTitle = gsap.utils.toArray(".power-title");
+        powerTitle.forEach((element) => {
+            gsap.from(element.children, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 90%",
+                    end: "bottom 90%",
+                    toggleActions: "play none none reverse",
+                    scrub: true,
+                },
+                opacity: 0,
+                y: 30,
+                x: -10,
+                ease: "power2.out",
+                stagger: 0.05,
+                filter: "blur(10px)",
+            });
         });
         const section = document.getElementById("superpowers");
         const NavBar = document.querySelector(".navbar");
         ScrollTrigger.create({
             trigger: section,
-            start: "top center",
-            end: "bottom center",
+            start: "top 100%",
+            end: "bottom 0%",
             toggleActions: "play none none reverse",
             onEnter: () => {
                 gsap.to(NavBar, {
@@ -82,54 +89,35 @@ function Skills() {
         });
     }, []);
     const textRef = useRef(null);
-    const imageRef = useRef(null);
-    useEffect(() => {
-        const boxes = gsap.utils.toArray(".reveal-box");
-        const texts = gsap.utils.toArray(".reveal-word");
+    useGSAP(() => {
+        const cards = gsap.utils.toArray(".card");
 
-        gsap.set(texts, { opacity: 1 });
+        cards.forEach((element, index) => {
+            // Pin each card
+            ScrollTrigger.create({
+                trigger: element,
+                start: "top 25%",
+                endTrigger: sectionRef.current,
+                end: "bottom bottom",
+                pin: true,
+                scrub: 1,
+            });
 
-        gsap.to(boxes, {
-            xPercent: 100,
-            stagger: 0.05,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: textRef.current,
-                start: "top 100%",
-                end: "+=300",
-                scrub: 1,
-                markers: true,
-            },
-            onComplete: () => {
-                gsap.to(boxes, {
-                    scrollTrigger: {
-                        trigger: text1Ref.current,
-                        start: "top 80%",
-                        end: "+=300",
-                        scrub: 1,
-                        markers: true,
-                    },
-                    xPercent: 0,
-                    stagger: 0.05,
-                    ease: "power2.in",
-                });
-            },
+            // Animate scale
+            if (index === cards.length - 1) return;
+            gsap.to(element, {
+                scale: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: cards[index + 1],
+                    start: "top 80%",
+
+                    end: "bottom bottom",
+                    scrub: 1,
+                },
+            });
         });
-        gsap.set(imageRef.current, {
-            scale: 0.6,
-            opacity: 0.4,
-        });
-        gsap.to(imageRef.current, {
-            scrollTrigger: {
-                trigger: textRef.current,
-                start: "top 100%",
-                end: "+=300",
-                scrub: 1,
-            },
-            opacity: 1,
-            scale: 1,
-        });
-    }, []);
+    }, {});
     return (
         <section
             id="superpowers"
@@ -137,7 +125,7 @@ function Skills() {
             className="Super_Power flex flex-col text-black bg-white"
         >
             <div
-                className="top-0 right-0 left-0 text-4xl md:text-5xl lg:text-7xl xl:text-9xl flex items-center justify-center mt-12 md:mt-10 lg:mt-10 xl:mt-12 font-counter"
+                className="top-0 right-0 left-0 text-4xl md:text-5xl lg:text-7xl xl:text-9xl flex items-center justify-center mt-12 md:mt-10 lg:mt-10 xl:mt-12 font-counter border-b-2 border-black/20 pb-24 mx-10"
                 ref={TitleRef}
             >
                 {[
@@ -164,191 +152,175 @@ function Skills() {
                     );
                 })}
             </div>
-            <div
-                className="p-4 md:p-8 lg:p-12 xl:p-16 flex items-center justify-center gap-12 md:gap-16 lg:gap-20 xl:gap-24 mt-24 font-jaapokki"
-                ref={powerRef}
-            >
-                <div
-                    ref={textRef}
-                    className="text-lg md:text-2xl lg:text-3xl xl:text-5xl w-[50%] leading-5 xl:leading-[3rem] text-black flex flex-wrap"
-                >
-                    {[
-                        ["CUT"],
-                        ["E", "font-jaapokki-subtract"],
-                        ["space"],
-                        ["ON"],
-                        ["space"],
-                        ["THE"],
-                        ["space"],
-
-                        ["OUTSIDE", "font-jaapokki-enchance"],
-
-                        ["space"],
-                        ["DEADLY", "font-jaapokki-enchance"],
-
-                        ["space"],
-                        ["ON"],
-                        ["space"],
-                        ["THE"],
-                        ["space"],
-                        ["I", "font-jaapokki-subtract"],
-                        ["NSI"],
-                        ["D", "font-jaapokki-enchance"],
-                        ["E."],
-                        ["space"],
-                        ["THEY"],
-                        ["space"],
-                        ["FI"],
-                        ["G", "font-jaapokki-enchance"],
-                        ["HT"],
-                        ["space"],
-                        ["with style", "underline"],
-                        ["img"],
-                        ["A", "font-jaapokki-subtract"],
-                        ["ND"],
-                        ["space"],
-                        ["NE"],
-                        ["V", "font-jaapokki-enchance"],
-                        ["ER"],
-                        ["space"],
-                        ["MISS."],
-                    ].map(([word, style], i) =>
-                        word === "img" ? (
-                            <img
-                                key={i}
-                                src="/cat/kung3.jpeg"
-                                alt="Cat Kung Fu"
-                                className="mx-2 md:mx-3 lg:mx-4 inline align-text-bottom h-[1em] w-auto rounded-md lg:rounded-xl animate-bounce"
-                            />
-                        ) : (
-                            <span key={i} className="relative overflow-hidden">
-                                <span
-                                    className={`reveal-word relative z-10 inline-block opacity-0 ${
-                                        style === "font-jaapokki-subtract" ||
-                                        style === "font-jaapokki-enchance"
-                                            ? style
-                                            : style === "underline"
-                                            ? "bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1 mx-1"
-                                            : ""
-                                    } ${
-                                        word === "space"
-                                            ? "mx-0.5 md:mx-2 lg:mx-3"
-                                            : ""
-                                    }`}
-                                >
-                                    {word !== "space" ? (
-                                        word
-                                    ) : (
-                                        <div className="hidden"></div>
-                                    )}
-                                </span>
-                                <span className="reveal-box absolute top-0 left-0 w-full h-full bg-white z-20" />
-                            </span>
-                        )
-                    )}
+            <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl gap-24">
+                <div className="">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl mb-24">
+                        {["KUNG", "FU", "/", "KARATE"].map((word, index) => {
+                            return (
+                                <div className="" key={index}>
+                                    {word}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div
+                        className="font-jaapokki text-2xl text-zinc-800 leading-8"
+                        ref={textRef}
+                    >
+                        {" "}
+                        <span className="mx-24"></span>
+                        "Don&apos;t be fooled by the fluff—cats are silent
+                        assassins cloaked in cuteness. Behind those purring eyes
+                        lie ancient{" "}
+                        <span className="bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1">
+                            martial skills:
+                        </span>
+                        <img
+                            src="/cat/kung3.jpeg"
+                            className="inline h-[1em] mx-4 rounded-md animate-bounce hover:scale-[500%] transition-all duration-300"
+                        />
+                        they leap like ninjas, strike with kung-fu precision,
+                        and land every move like feline black belts. Karate?
+                        They've got it."
+                    </div>
                 </div>
-
                 <img
                     src="/cat/kunfu.jpg"
                     alt="Cat Kung Fu"
-                    className="w-[25%] h-auto rounded-2xl"
-                    ref={imageRef}
+                    className="w-auto h-[80%] my-auto rounded-2xl"
                 />
             </div>
-            <div
-                className="p-4 md:p-8 lg:p-12 xl:p-16 flex items-center justify-center gap-12 md:gap-16 lg:gap-20 xl:gap-24 mt-24 font-jaapokki"
-                ref={power1Ref}
-            >
-                <div
-                    ref={text1Ref}
-                    className="text-lg md:text-2xl lg:text-3xl xl:text-5xl w-[50%] leading-5 xl:leading-[3rem] text-black flex flex-wrap"
-                >
-                    {[
-                        ["CUT"],
-                        ["E", "font-jaapokki-subtract"],
-                        ["space"],
-                        ["ON"],
-                        ["space"],
-                        ["THE"],
-                        ["space"],
-
-                        ["OUTSIDE", "font-jaapokki-enchance"],
-
-                        ["space"],
-                        ["DEADLY", "font-jaapokki-enchance"],
-
-                        ["space"],
-                        ["ON"],
-                        ["space"],
-                        ["THE"],
-                        ["space"],
-                        ["I", "font-jaapokki-subtract"],
-                        ["NSI"],
-                        ["D", "font-jaapokki-enchance"],
-                        ["E."],
-                        ["space"],
-                        ["THEY"],
-                        ["space"],
-                        ["FI"],
-                        ["G", "font-jaapokki-enchance"],
-                        ["HT"],
-                        ["space"],
-                        ["with style", "underline"],
-                        ["img"],
-                        ["A", "font-jaapokki-subtract"],
-                        ["ND"],
-                        ["space"],
-                        ["NE"],
-                        ["V", "font-jaapokki-enchance"],
-                        ["ER"],
-                        ["space"],
-                        ["MISS."],
-                    ].map(([word, style], i) =>
-                        word === "img" ? (
-                            <img
-                                key={i}
-                                src="/cat/kung3.jpeg"
-                                alt="Cat Kung Fu"
-                                className="mx-2 md:mx-3 lg:mx-4 inline align-text-bottom h-[1em] w-auto rounded-md lg:rounded-xl animate-bounce"
-                            />
-                        ) : (
-                            <span key={i} className="relative overflow-hidden">
-                                <span
-                                    className={`reveal-word relative z-10 inline-block opacity-0 ${
-                                        style === "font-jaapokki-subtract" ||
-                                        style === "font-jaapokki-enchance"
-                                            ? style
-                                            : style === "underline"
-                                            ? "bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1 mx-1"
-                                            : ""
-                                    } ${
-                                        word === "space"
-                                            ? "mx-0.5 md:mx-2 lg:mx-3"
-                                            : ""
-                                    }`}
-                                >
-                                    {word !== "space" ? (
-                                        word
-                                    ) : (
-                                        <div className="hidden"></div>
-                                    )}
-                                </span>
-                                <span className="reveal-box absolute top-0 left-0 w-full h-full bg-white z-20" />
-                            </span>
-                        )
-                    )}
+            <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl gap-24">
+                <div className="">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl mb-24">
+                        {["SPEED", "/", "REFLEX"].map((word, index) => {
+                            return (
+                                <div className="" key={index}>
+                                    {word}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div
+                        className="font-jaapokki text-2xl text-zinc-800 leading-8"
+                        ref={textRef}
+                    >
+                        <span className="mx-24"></span>
+                        "Their reflexes? Lightning. Their speed? Blinding. Cats
+                        move before you blink—dashing across rooms, dodging
+                        invisible threats, and reacting with precision honed by
+                        instinct. They don&apos;t chase— they calculate, strike,
+                        and vanish{" "}
+                        <span className="bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1">
+                            like a whisper.
+                        </span>
+                        <img
+                            src="/cat/speed2.png"
+                            className="inline h-[1em] mx-4 rounded-md animate-bounce hover:scale-[500%] transition-all duration-300"
+                        />
+                        You don&apos;t see the attack. You feel it."
+                    </div>
                 </div>
-
+                <img
+                    src="/cat/spped1.jpg"
+                    alt="Cat Speed"
+                    className="w-auto h-[80%] my-auto rounded-2xl"
+                />
+            </div>
+            <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl gap-24">
+                <div className="">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl mb-24">
+                        {["STEALTH", "/", "SNEAKY"].map((word, index) => {
+                            return (
+                                <div className="" key={index}>
+                                    {word}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div
+                        className="font-jaapokki text-2xl text-zinc-800 leading-8"
+                        ref={textRef}
+                    >
+                        <span className="mx-24"></span>
+                        "Cats don&apos;t walk — they ghost. One moment
+                        they&apos;re beside you, the next they&apos;re a shadow
+                        slipping{" "}
+                        <span className="bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1">
+                            a shadow slipping
+                        </span>{" "}
+                        through the silence. No creaks, no clicks — just the
+                        soft whisper of paws plotting their next silent ambush.
+                        <img
+                            src="/cat/sneak3.avif"
+                            className="inline h-[1em] mx-4 rounded-md animate-bounce hover:scale-[500%] transition-all duration-300"
+                        />
+                        They&apos;re not pets… they&apos;re professional
+                        infiltrators in fur coats."
+                    </div>
+                </div>
+                <img
+                    src="/cat/sneak1.jpg"
+                    alt="Cat Kung Fu"
+                    className="w-auto h-[80%] my-auto rounded-2xl"
+                />
+            </div>
+            <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl gap-24">
+                <div className="">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl mb-24">
+                        {["CUTE", "/", "DEADLY"].map((word, index) => {
+                            return (
+                                <div className="" key={index}>
+                                    {word}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div
+                        className="font-jaapokki text-2xl text-zinc-800 leading-8"
+                        ref={textRef}
+                    >
+                        <span className="mx-24"></span>
+                        "Don&apos;t mistake the wide eyes and twitchy whiskers —
+                        that&apos;s camouflage. Their cuteness is a{" "}
+                        <span className="bg-[url('/wavy_underline.svg')] bg-no-repeat bg-bottom bg-[length:100%_0.5em] pb-1">
+                            weapon, a distraction.
+                        </span>{" "}
+                        While you melt at the meow, they&apos;re already in
+                        control. One tilt of the head, one slow blink,
+                        <img
+                            src="/cat/cute2.jpg"
+                            className="inline h-[1em] mx-4 rounded-md animate-bounce hover:scale-[500%] transition-all duration-300"
+                        />
+                        and you're defenseless. It&apos;s not affection —
+                        it&apos;s psychological warfare in its fluffiest form."
+                    </div>
+                </div>
+                <img
+                    src="/cat/cute.jpg"
+                    alt="Cat Kung Fu"
+                    className="w-auto h-[80%] my-auto rounded-2xl"
+                />
+            </div>
+            {/* <div className="card flex h-[70vh] items-start justify-between px-24 py-12 bg-white/30 backdrop-blur-2xl">
+                <div className="">
+                    <div className="power-title flex font-jaapokki-subtract gap-4 text-5xl m-24">
+                        {["KUNG", "FU", "/", "KARATE"].map((word, index) => {
+                            return (
+                                <div className="" key={index}>
+                                    {word}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div className="" ref={textRef}></div>
+                </div>
                 <img
                     src="/cat/kunfu.jpg"
                     alt="Cat Kung Fu"
-                    className="w-[25%] h-auto rounded-2xl"
-                    ref={image1Ref}
+                    className="w-auto h-[80%] my-auto rounded-2xl"
                 />
-            </div>
-            <div className="text-black mt-[4000px] flex items-center justify-center">
-                awfaduiwabdiniawbdiubaibdi
-            </div>
+            </div> */}
         </section>
     );
 }

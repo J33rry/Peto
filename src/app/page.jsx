@@ -20,11 +20,12 @@ function page() {
 
         const trigger = ScrollTrigger.create({
             start: 0,
-            end: document.body.scrollHeight,
+            end: MainRef.current.scrollHeight,
             onUpdate: (self) => {
                 const currentY = window.scrollY;
+                console.log("Current Y:", currentY, "Last Y:", lastY);
 
-                if (currentY > lastY && currentY > 100) {
+                if (currentY > lastY) {
                     // Scroll Down
                     gsap.to(nav, {
                         top: -70,
@@ -34,7 +35,6 @@ function page() {
                         ease: "power2.out",
                     });
                 } else {
-                    // Scroll Up
                     gsap.to(nav, {
                         top: 5,
                         duration: 0.6,
