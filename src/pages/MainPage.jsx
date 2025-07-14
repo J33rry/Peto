@@ -1,4 +1,4 @@
-import Details from "@/components/Details";
+import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
 import React, { useRef } from "react";
@@ -8,7 +8,7 @@ function MainPage() {
         <div className="">
             <Hero />
             <Skills />
-            <Details />
+            <Gallery />
         </div>
     );
 }

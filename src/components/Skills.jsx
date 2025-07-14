@@ -160,7 +160,7 @@ function Skills() {
                             );
                         })}
                     </div>
-                    <div className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
+                    <div className="cardtext font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
                         <span className="mx-8 md:mx-12 lg:mx-18 xl:mx-24"></span>
                         "Their reflexes? Lightning. Their speed? Blinding. Cats
                         move before you blink—dashing across rooms, dodging
@@ -194,7 +194,7 @@ function Skills() {
                             );
                         })}
                     </div>
-                    <div className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
+                    <div className="cardtext font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
                         {" "}
                         <span className="mx-8 md:mx-12 lg:mx-18 xl:mx-24"></span>
                         "Don&apos;t be fooled by the fluff—cats are silent
@@ -229,7 +229,7 @@ function Skills() {
                             );
                         })}
                     </div>
-                    <div className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
+                    <div className="cardtext font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
                         <span className="mx-8 md:mx-12 lg:mx-18 xl:mx-24"></span>
                         "Cats don&apos;t walk — they ghost. One moment
                         they&apos;re beside you, the next they&apos;re a shadow
@@ -264,7 +264,7 @@ function Skills() {
                             );
                         })}
                     </div>
-                    <div className="font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
+                    <div className="cardtext font-jaapokki text-md md:text-lg lg:text-xl leading-4 xl:text-2xl text-zinc-800 md:leading-6 xl:leading-8">
                         <span className="mx-8 md:mx-12 lg:mx-18 xl:mx-24"></span>
                         "Don&apos;t mistake the wide eyes and twitchy whiskers —
                         that&apos;s camouflage. Their cuteness is a{" "}
