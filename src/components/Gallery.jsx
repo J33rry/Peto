@@ -1,4 +1,5 @@
 import { useGSAP } from "@gsap/react";
+import Spline from "@splinetool/react-spline";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import React, { useRef } from "react";
@@ -168,14 +169,18 @@ function Gallery() {
                     );
                 })}
             </div>
+
             <div className="grid grid-cols-6 grid-rows-8 p-4 md:p-8 lg:px-24 xl:px-48 lg:py-24 gap-1 lg:gap-2 w-[100vw]">
+                <main className="pointer-events-auto col-start-5 col-end-7 row-start-3 row-end-5 shadow-md shadow-zinc-300/30 bg-white/10">
+                    <Spline scene="https://prod.spline.design/2PcNo-joJZwlXmvD/scene.splinecode" />
+                </main>
                 <video
                     src="/Videos/cat2.mp4"
                     muted
                     playsInline
                     loop
                     autoPlay
-                    className="col-start-1 col-end-2 row-start-4 row-end-6 h-[30vh] md:h-[50vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none"
+                    className="col-start-1 col-end-2 row-start-4 row-end-6 h-[30vh] md:h-[50vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none hover:shadow-lg shadow-zinc-500"
                 ></video>
                 <video
                     src="/Videos/cat3.mp4"
@@ -183,7 +188,7 @@ function Gallery() {
                     playsInline
                     loop
                     autoPlay
-                    className="col-start-1 col-end-3 row-start-1 row-end-2 h-[15vh] md:h-[25vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none"
+                    className="col-start-1 col-end-3 row-start-1 row-end-2 h-[15vh] md:h-[25vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none hover:shadow-lg shadow-zinc-500"
                 ></video>
                 <video
                     src="/Videos/cat4.mp4"
@@ -191,7 +196,7 @@ function Gallery() {
                     playsInline
                     loop
                     autoPlay
-                    className="row-start-5 row-end-6 col-start-4 col-end-6 h-[15vh] md:h-[25vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none"
+                    className="row-start-5 row-end-6 col-start-4 col-end-6 h-[15vh] md:h-[25vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none hover:shadow-lg shadow-zinc-500"
                 ></video>
                 <video
                     src="/Videos/cat5.mp4"
@@ -199,7 +204,7 @@ function Gallery() {
                     playsInline
                     loop
                     autoPlay
-                    className="row-start-6 row-end-7 col-start-1 col-end-4 g-[15vh] md:h-[25vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none"
+                    className="row-start-6 row-end-7 col-start-1 col-end-4 g-[15vh] md:h-[25vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none hover:shadow-lg shadow-zinc-500"
                 ></video>
                 <video
                     src="/Videos/cat6.mp4"
@@ -207,7 +212,7 @@ function Gallery() {
                     playsInline
                     loop
                     autoPlay
-                    className="row-start-7 row-end-8 col-start-1 col-end-4 h-[15vh] md:h-[25vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none"
+                    className="row-start-7 row-end-8 col-start-1 col-end-4 h-[15vh] md:h-[25vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 lg:blur-xs hover:blur-none hover:shadow-lg shadow-zinc-500"
                 ></video>
                 <video
                     src="/Videos/cat7.mp4"
@@ -215,7 +220,7 @@ function Gallery() {
                     playsInline
                     loop
                     autoPlay
-                    className="row-start-6 row-end-9 col-start-4 col-end-7 h-[45vh] md:h-[75vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 "
+                    className="row-start-6 row-end-9 col-start-4 col-end-7 h-[45vh] md:h-[75vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 hover:shadow-lg shadow-zinc-500"
                 ></video>
                 <video
                     src="/Videos/cat8.mp4"
@@ -223,7 +228,7 @@ function Gallery() {
                     playsInline
                     loop
                     autoPlay
-                    className="row-start-2 row-end-5 col-start-2 h-[45vh] col-end-5 md:h-[75vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 "
+                    className="row-start-2 row-end-5 col-start-2 h-[45vh] col-end-5 md:h-[75vh] w-full object-cover rounded-lg hover:scale-110 transition-all duration-500 hover:shadow-lg shadow-zinc-500"
                 ></video>
             </div>
         </div>
